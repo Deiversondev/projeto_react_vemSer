@@ -1,5 +1,6 @@
 import {Formik} from 'formik';
 import styles from './Formulario.module.css'
+import { MdDeleteForever } from 'react-icons/fa';
 
 function Formulario() {
     return (
