@@ -1,0 +1,25 @@
+.list {
+  margin: 50px;
+}
+
+.header {
+  width: 80%;
+  margin: auto;
+  border: 1px solid #000;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.body{
+  width: 80%;
+  margin: auto;
+  border: 1px solid #000;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
