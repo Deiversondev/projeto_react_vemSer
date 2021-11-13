@@ -6,3 +6,46 @@
   width: 75%;
   background-color: rgb(248, 248, 248);
 }
+
+.container:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn button {
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.delete {
+  background-color: rgb(139, 10, 10);
+  color: white;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.delete:hover {
+  background-color: white ;
+  color: rgb(139, 10, 10);
+  border: 1px solid rgb(139, 10, 10);
+}
+
+.edit {
+  background-color: rgb(7, 19, 82);
+  color: white;
+  font-size: 20px;
+}
+
+.edit:hover {
+  background-color: white ;
+  color: rgb(7, 19, 82);
+  border: 1px solid rgb(7, 19, 82);
+}

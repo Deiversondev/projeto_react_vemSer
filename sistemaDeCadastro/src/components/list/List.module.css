@@ -23,3 +23,35 @@
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
+
+.btn {
+  width: 80%;
+  height: 40px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.btn button {
+  cursor: pointer;
+  width: 150px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+}
+
+.btn button:hover {
+  background-color: rgb(46, 46, 46);
+  color: rgb(255, 255, 255);
+}
+
+.btn button:active {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 1px solid black;
+}
