@@ -1,7 +1,7 @@
 import './App.css';
 import List from './components/list/List';
 import Formulario from './components/fomulario/Formulario';
-import Card from './components/card/Card';
+// import Card from './components/card/Card';
 import {useFormik} from 'formik';
 import {useState} from 'react'
 
@@ -40,7 +40,6 @@ const [userList, setUserList] = useState([]);
     <div className="container">
       <Formulario formik={formik} />
       <List List={userList}  formik={formik}/>
-      <Card  formik={formik}/>
     </div>
   )}
 

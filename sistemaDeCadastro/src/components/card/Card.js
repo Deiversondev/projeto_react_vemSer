@@ -1,11 +1,11 @@
-import style from "../card/Card.module.css"
+import styles from "../card/Card.module.css"
 import { AiFillDelete } from "@react-icons/all-files/ai/AiFillDelete";
 import { AiFillEdit } from "@react-icons/all-files/ai/AiFillEdit";
 
 const CardList = () => {
   return (
-    <div className={style.container}>
-      <div className={style.card}>
+    <div className={styles.container}>
+      <div className={styles.card}>
         <div>
           <div>
             <strong>Nome completo: </strong>
@@ -24,9 +24,9 @@ const CardList = () => {
             <span>(00) 9.0000-0000</span>
           </div>
         </div>
-        <div className={style.btn}>
-          <button className={style.delete}><AiFillDelete className={style.deleteIcon}/></button>
-          <button className={style.edit}><AiFillEdit /></button>
+        <div className={styles.btn}>
+          <button className={styles.delete}><AiFillDelete className={styles.deleteIcon}/></button>
+          <button className={styles.edit}><AiFillEdit /></button>
         </div>
       </div>
       {/* <div className={style.rigth}>
