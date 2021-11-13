@@ -2,26 +2,26 @@ import style from "../card/Card.module.css"
 import { AiFillDelete } from "@react-icons/all-files/ai/AiFillDelete";
 import { AiFillEdit } from "@react-icons/all-files/ai/AiFillEdit";
 
-const CardList = () => {
+const CardList = ({user}) => {
   return (
     <div className={style.container}>
       <div className={style.card}>
         <div>
           <div>
             <strong>Nome completo: </strong>
-            <span>Brenoly Porto</span>
+            <span>{user.firstName + " " + user.lastName}</span>
           </div>
           <div>
             <strong>E-mail: </strong>
-            <span>brenolyporto@gmail.com</span>
+            <span>{user.email}</span>
           </div>
           <div>
             <strong>Endereço: </strong>
-            <span>Rua que não existe, 000, Centro, Angelim - PE</span>
+            <span>{user.address}</span>
           </div>
           <div>
             <strong>Número: </strong>
-            <span>(00) 9.0000-0000</span>
+            <span>{user.cellPhoneNumber}</span>
           </div>
         </div>
         <div className={style.btn}>
