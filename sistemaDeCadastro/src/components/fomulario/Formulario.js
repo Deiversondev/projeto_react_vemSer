@@ -1,45 +1,45 @@
-import {Formik} from 'formik';
 import styles from './Formulario.module.css'
-import { MdDeleteForever } from 'react-icons/fa';
 
-function Formulario() {
+
+function Formulario({formik}) {
+
+
     return (
         <div>
-
-        
-        <form action="">
+        <form onSubmit={formik.handleSubmit}>
             <div className={styles.title}>Cadastrar</div>
           <div className={styles.form}>
 
           <div className={styles.input}>
-                <h4>Nome</h4>
-                <input type="text" name="firstName" id="firstName" placeholder="Digite seu nome"/>   
+                <h4 htmlFor="firstName">Nome</h4>
+                <input type="text" name="firstName" id="firstName" placeholder="Digite seu nome" onChange={formik.handleChange} value={formik.values.firstName}/>   
            </div>
 
             
             <div className={styles.input}>
-                <h4>Sobrenome</h4>
-                <input type="text" name="lastName" id="lastName" placeholder="Digite seu sobrenome"/>
+                <h4 htmlFor="lastName">Sobrenome</h4>
+                <input type="text" name="lastName" id="lastName" placeholder="Digite seu sobrenome" onChange={formik.handleChange} value={formik.values.lastName}/>
             </div>
            
            <div className={styles.input}>
-                <h4>Email</h4>
-                <input type="text" name="email" id="email" placeholder="Digite seu e-mail"/>
+                <h4 htmlFor="email">Email</h4>
+                <input type="text" name="email" id="email" placeholder="Digite seu e-mail" onChange={formik.handleChange} value={formik.values.email}/>
            </div>
             
             <div className={styles.input}>
-                <h4>Endereço</h4>
-                <input type="text" name="address" id="address"  placeholder="Digite seu endereço"/>
+                <h4 htmlFor="address">Endereço</h4>
+                <input type="text" name="address" id="address"  placeholder="Digite seu endereço" onChange={formik.handleChange} value={formik.values.address} />
             </div>
             
             <div className={styles.input}>
-                <h4>Telefone</h4>
-               <input type="text" name="cellPhoneNumber" id="cellPhoneNumber" placeholder="Digite seu telefone"/>
+                <h4 htmlFor="telefone">Telefone</h4>
+               <input type="text" name="cellPhoneNumber" id="cellPhoneNumber" placeholder="Digite seu telefone" onChange={formik.handleChange} value={formik.values.cellPhoneNumber}/>
             </div>
-
+            
             <div className={styles.btn}>
-                <button>Cadastrar</button>
+                <button type="submit">Cadastrar</button>
             </div>
+            
           </div>
 
           
