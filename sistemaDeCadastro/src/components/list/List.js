@@ -6,10 +6,17 @@ import { useFormik } from 'formik';
 
 const List = () => {
 
-  let [activeList, setActiveList] = useState(true);
+  const [activeForm, setActiveForm] = useState(false);
+  const [activeList, setActiveList] = useState(true);
 
-  const activeComponetForms = () => {
-    setActiveList(false);
+  const active = ()=> {
+    if(activeList === true){
+      setActiveForm(true);
+      setActiveList(false);
+    }else {
+      setActiveForm(false);
+      setActiveList(true);
+    }
   }
 
   const [userId, setId] = useState(1);
@@ -41,13 +48,14 @@ const List = () => {
     }
   })
 
-
-
   return (
     <>
+    {
+      activeList ?
+      <>
       <div className={style.list}>
         <div className={style.header}>
-          <strong>Lista de Cadastrados</strong>
+          <strong>Lista de Usuários</strong>
         </div>
         <div className={style.body}>
 
@@ -58,14 +66,17 @@ const List = () => {
              );
             })   
            : 
-           <div>Lista vazia</div>}
-
-          <div className={style.btn}>
-            <button onClick={activeComponetForms}>Cadastrar Usuário</button>
-          </div>
+           <div className={style.listEmpty}><strong>Lista vazia</strong></div>}
         </div>
       </div>
-      <Formulario formik={formik} />
+          <div className={style.btn}>
+            <button onClick={active}>Cadastrar Novo Usuário</button>
+          </div>
+      </>
+      
+      : <></>
+    }
+      <Formulario formik={formik} active={active} activeForm={activeForm}/> 
     </>
 
   )

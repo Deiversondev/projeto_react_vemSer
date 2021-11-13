@@ -1,5 +1,6 @@
 .list {
-  margin: 50px;
+  margin-top: 50px;
+  margin-bottom: 20px;
 }
 
 .header {
@@ -55,3 +56,10 @@
   color: rgb(0, 0, 0);
   border: 1px solid black;
 }
+
+.listEmpty {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  color: red;
+} 
