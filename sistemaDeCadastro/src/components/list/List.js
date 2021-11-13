@@ -4,10 +4,15 @@ import styles from "../card/Card.module.css"
 import { AiFillDelete } from "@react-icons/all-files/ai/AiFillDelete";
 import { AiFillEdit } from "@react-icons/all-files/ai/AiFillEdit";
 
-const List = ({List}) => {
+const List = ({List,setUserList}) => {
+
+  function removeUser(id){
+      setUserList(List.filter(user => user.id !== id));
+  }
 
 
   return (
+
     <>
     
       <div className={style.list}>
@@ -22,8 +27,8 @@ const List = ({List}) => {
             return (
               <div className={styles.container}>
               <div className={styles.card}>
-                <div>
-                  <div>
+                <div id={user.id}>
+                  <div >
                     <strong>Nome completo: </strong>
                     <span>{`${user.firstName} ${user.lastName}`}</span>
                   </div>
@@ -41,7 +46,7 @@ const List = ({List}) => {
                   </div>
                 </div>
                 <div className={styles.btn}>
-                  <button className={styles.delete}><AiFillDelete className={styles.deleteIcon}/></button>
+                  <button onClick={() => removeUser(user.id)} className={styles.delete} ><AiFillDelete className={styles.deleteIcon}/></button>
                   <button className={styles.edit}><AiFillEdit /></button>
                 </div>
               </div>

@@ -23,6 +23,7 @@ const [userList, setUserList] = useState([]);
         values.id = userId;
         setId(userId+1);
         userList.push({
+          id:values.id,
           firstName:values.firstName,
           lastName:values.lastName,
           email:values.email,
@@ -39,7 +40,7 @@ const [userList, setUserList] = useState([]);
   return (
     <div className="container">
       <Formulario formik={formik} />
-      <List List={userList}  formik={formik}/>
+      <List List={userList} setUserList={setUserList}  formik={formik}/>
     </div>
   )}
 
