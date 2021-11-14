@@ -1,9 +1,25 @@
 import styles from './Formulario.module.css'
 
 
-function Formulario({formik}) {
+function Formulario({List,formik}) {
 
-    
+    // function editUser(id){
+    //     const userFound = List.find(user => user.id === id)
+    //     formik.setValues(userFound)
+    //     let userEdit = List.find(u => u.id === values.id)
+    //     console.log(userEditado)
+    //     // console.log(values)
+
+    //     if (userEdit !== -1 ){
+    //       userEdit.firstName = values.firstName
+    //       userEdit.lastName = values.lastName
+    //       userEdit.address = values.address
+    //       userEdit.email = values.email
+    //       userEdit.cellPhoneNumber = values.cellPhoneNumber
+          
+    //       setListUsuarios([...List])
+    //   }
+    // }
 
     return (
         <div>

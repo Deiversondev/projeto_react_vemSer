@@ -10,6 +10,8 @@ function App() {
 const [userId,setId] = useState(1);
 const [userList, setUserList] = useState([]);
 
+
+
   const formik = useFormik({
     initialValues:{
         id:0,
@@ -37,9 +39,11 @@ const [userList, setUserList] = useState([]);
     }
 })
 
+
+
   return (
     <div className="container">
-      <Formulario formik={formik} />
+      <Formulario List={userList} formik={formik} />
       <List List={userList} setUserList={setUserList}  formik={formik}/>
     </div>
   )}

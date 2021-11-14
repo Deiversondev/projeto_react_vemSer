@@ -5,47 +5,19 @@ import { AiFillDelete } from "@react-icons/all-files/ai/AiFillDelete";
 import { AiFillEdit } from "@react-icons/all-files/ai/AiFillEdit";
 import { useState } from 'react';
 
-const List = ({formik,List,setUserList}) => {
+const List = ({values,formik,List,setUserList}) => {
 
   function removeUser(id){
       setUserList(List.filter(user => user.id !== id));
   }
 
 
-  const [activeCard,setActiveCard] = useState(true);
-  const [activeEdit,setActiveEdit] = useState(false);
-
-  function active(){
-    if (activeCard === true) {
-      setActiveCard(false);
-      setActiveEdit(true);
-    }
-    else {
-      setActiveCard(true);
-      setActiveEdit(false);
-    }
-  }
-
-  function editUser(id){
-    const userFound = List.find(user => user.id === id)
-    formik.setValues(userFound)
-  }
-
 
   return (
-
+  
     <>
 
-    {
-      activeCard ? 
-      <> 
-
-      
-
-
-      
-       </> : <> </>
-    }
+{
 
     
       <div className={style.list}>
@@ -82,14 +54,13 @@ const List = ({formik,List,setUserList}) => {
                 </div>
                 <div className={styles.btn}>
                   <button onClick={() => removeUser(user.id)} className={styles.delete} ><AiFillDelete className={styles.deleteIcon}/></button>
-                  <button onClick={() => editUser(user.id) }className={styles.edit}><AiFillEdit /></button>
+                  <button className={styles.edit}><AiFillEdit /></button>
                 </div>
               </div>
             </div>
 
 
-
-            <form onSubmit={formik.handleSubmit}>
+            {/* <form onSubmit={formik.handleSubmit}>
             <div className={styless.title}>Ediatr</div>
           <div className={styless.form}>
 
@@ -126,7 +97,7 @@ const List = ({formik,List,setUserList}) => {
           </div>
 
           
-        </form>
+        </form> */}
 
               
             </div>
@@ -144,7 +115,8 @@ const List = ({formik,List,setUserList}) => {
     </div>
 
      
-    
+     
+      }
     </>
    
   )
