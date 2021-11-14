@@ -35,6 +35,7 @@ const List = () => {
       values.id = userId;
       setId(userId + 1);
       userList.push({
+        id:values.id,
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
@@ -62,7 +63,7 @@ const List = () => {
           {userList.length ?
            userList.map(user=>{
              return(
-              <Card user={user} />
+              <Card list={userList} setList={setUserList} user={user} />
              );
             })   
            : 
