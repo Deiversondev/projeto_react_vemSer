@@ -36,7 +36,16 @@ const List = ({formik,List,setUserList}) => {
 
     <>
 
-    
+    {
+      activeCard ? 
+      <> 
+
+      
+
+
+      
+       </> : <> </>
+    }
 
     
       <div className={style.list}>
