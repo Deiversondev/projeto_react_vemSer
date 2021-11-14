@@ -11,17 +11,18 @@ const List = ({formik,List,setUserList}) => {
       setUserList(List.filter(user => user.id !== id));
   }
 
+
   const [activeCard,setActiveCard] = useState(true);
   const [activeEdit,setActiveEdit] = useState(false);
 
   function active(){
     if (activeCard === true) {
-      setActiveCard = false;
-      setActiveEdit = true;
+      setActiveCard(false);
+      setActiveEdit(true);
     }
     else {
-      setActiveCard = true;
-      setActiveEdit = false;
+      setActiveCard(true);
+      setActiveEdit(false);
     }
   }
 
@@ -35,7 +36,7 @@ const List = ({formik,List,setUserList}) => {
 
     <>
 
-
+    
 
     
       <div className={style.list}>
