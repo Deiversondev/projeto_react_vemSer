@@ -34,7 +34,7 @@ const [userList, setUserList] = useState([]);
         })
         formik.resetForm();
         console.log(values);
-        console.log(userList)
+      
         
     }
 })
@@ -43,8 +43,8 @@ const [userList, setUserList] = useState([]);
 
   return (
     <div className="container">
-      <Formulario List={userList} formik={formik} />
-      <List List={userList} setUserList={setUserList}  formik={formik}/>
+      <Formulario values={formik.values} List={userList} formik={formik} />
+      <List values={formik.values} List={userList} setUserList={setUserList}  formik={formik}/>
     </div>
   )}
 
