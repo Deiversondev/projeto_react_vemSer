@@ -4,7 +4,6 @@ import { AiFillEdit } from "@react-icons/all-files/ai/AiFillEdit";
 
 const Card = ({ChangeId,setList,list,user, formik, active}) => {
 
-
 function remove(id){
     setList(list.filter(u => u.id !== id))
 }
@@ -15,7 +14,6 @@ function remove(id){
     // setList(list.filter(user => user.id !== id));
     active();
   }
-
 
   return (
     <div className={style.container}>
@@ -43,7 +41,6 @@ function remove(id){
           <button onClick={() => {edit(user.id);ChangeId(user.id)}} className={style.edit}><AiFillEdit /></button>
         </div>
       </div>
-
     </div>
   )
 }

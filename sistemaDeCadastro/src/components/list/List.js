@@ -26,7 +26,6 @@ const List = () => {
   const validate = values => {
     const errors = {};
 
-
     if (!values.firstName) {
       errors.firstName = 'Nome Obrigatório';
     } else if (!/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ']+$/.test(values.firstName)) {
@@ -53,12 +52,14 @@ const List = () => {
       errors.address = 'Endereço Obrigatório';
     }
 
-
+    if(!values.cellPhoneNumber){
+      errors.cellPhoneNumber = 'Número Obrigatório';
+    }else if(/_/.test(values.cellPhoneNumber)){
+      errors.cellPhoneNumber = 'Digite todos os números';
+    }
 
     return errors;
   };
-
-
 
   const formik = useFormik({
     initialValues: {
@@ -82,10 +83,7 @@ const List = () => {
         cellPhoneNumber: values.cellPhoneNumber
       })
       formik.resetForm();
-      // console.log(values);
-      // console.log(userList)
       console.log(userID)
-
     }
   })
 
@@ -99,7 +97,6 @@ const List = () => {
           <strong>Lista de Usuários</strong>
         </div>
         <div className={style.body}>
-
           {userList.length ?
            userList.map(user=>{
              return(
@@ -113,14 +110,12 @@ const List = () => {
           <div className={style.btn}>
             <button onClick={active}>Cadastrar Novo Usuário</button>
           </div>
-      </>
-      
+      </> 
       : <></>
     }
       <Formulario setList={setUserList} list={userList} UserID={userID} formik={formik} active={active} activeForm={activeForm}/> 
     </>
-
   )
 }
 
-export default List
+export default List;

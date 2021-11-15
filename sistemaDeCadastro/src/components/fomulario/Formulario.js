@@ -1,5 +1,5 @@
 import styles from './Formulario.module.css'
-
+import InputMask from "react-input-mask";
 
 function Formulario({setList,list,UserID, formik, active, activeForm }) {
 
@@ -7,7 +7,6 @@ function Formulario({setList,list,UserID, formik, active, activeForm }) {
         setList(list.filter(user => user.id !== UserID))
         console.log(UserID);
     }
-
 
     return (
         <>
@@ -23,7 +22,6 @@ function Formulario({setList,list,UserID, formik, active, activeForm }) {
                         <input type="text" name="firstName" id="firstName" placeholder="Digite seu nome" onChange={formik.handleChange} value={formik.values.firstName} />
                         {formik.errors.firstName ? <div className={styles.errors}>{formik.errors.firstName}</div> : null}
                     </div>
-
 
                     <div className={styles.input}>
                         <h4 htmlFor="lastName">Sobrenome</h4>
@@ -45,7 +43,8 @@ function Formulario({setList,list,UserID, formik, active, activeForm }) {
 
                     <div className={styles.input}>
                         <h4 htmlFor="telefone">Telefone</h4>
-                        <input type="text" name="cellPhoneNumber" id="cellPhoneNumber" placeholder="Digite seu telefone" onChange={formik.handleChange} value={formik.values.cellPhoneNumber} />
+                        <InputMask mask="(**) ***** ****" type="text" name="cellPhoneNumber" id="cellPhoneNumber" placeholder="Digite seu telefone" onChange={formik.handleChange} value={formik.values.cellPhoneNumber} />
+                        {formik.errors.cellPhoneNumber ? <div className={styles.errors}>{formik.errors.cellPhoneNumber}</div> : null}
                     </div>
 
                     <div className={styles.btn}>
@@ -57,13 +56,11 @@ function Formulario({setList,list,UserID, formik, active, activeForm }) {
                     <button onClick={active}>Voltar</button>
                 </div>
         </div> 
-            : <></>
-        }
-           
+            : null}
         </>
     )
 }
 
-export default Formulario
+export default Formulario;
 
 
