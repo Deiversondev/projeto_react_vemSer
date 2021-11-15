@@ -2,7 +2,7 @@ import style from "../card/Card.module.css"
 import { AiFillDelete } from "@react-icons/all-files/ai/AiFillDelete";
 import { AiFillEdit } from "@react-icons/all-files/ai/AiFillEdit";
 
-const CardList = ({changeId,setList,list,user, formik, active}) => {
+const Card = ({ChangeId,setList,list,user, formik, active}) => {
 
 
 function remove(id){
@@ -12,7 +12,7 @@ function remove(id){
   function edit(id) {
     let userFound = list.find(u => u.id === id);
     formik.setValues(userFound);
-    
+    // setList(list.filter(user => user.id !== id));
     active();
   }
 
@@ -40,7 +40,7 @@ function remove(id){
         </div>
         <div className={style.btn}>
           <button onClick={() => remove(user.id)} className={style.delete}><AiFillDelete className={style.deleteIcon}/></button>
-          <button onClick={() => {edit(user.id);changeId(user.id)}} className={style.edit}><AiFillEdit /></button>
+          <button onClick={() => {edit(user.id);ChangeId(user.id)}} className={style.edit}><AiFillEdit /></button>
         </div>
       </div>
 
@@ -48,4 +48,4 @@ function remove(id){
   )
 }
 
-export default CardList
+export default Card;

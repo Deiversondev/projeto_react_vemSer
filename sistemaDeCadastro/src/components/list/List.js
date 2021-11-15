@@ -8,7 +8,7 @@ const List = () => {
 
   const [activeForm, setActiveForm] = useState(false);
   const [activeList, setActiveList] = useState(true);
-  const [userID, setUserID] = useState();
+  const [userID, setUserID] = useState(0)
 
   const active = ()=> {
     if(activeList === true){
@@ -23,6 +23,43 @@ const List = () => {
   const [userId, setId] = useState(1);
   const [userList, setUserList] = useState([]);
 
+  const validate = values => {
+    const errors = {};
+
+
+    if (!values.firstName) {
+      errors.firstName = 'Nome Obrigatório';
+    } else if (!/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ']+$/.test(values.firstName)) {
+      errors.firstName = 'Números ou espaços não são permitidos';
+    }else if(values.firstName.length > 32){
+      errors.firstName = 'Permitido apenas 32 caracteres';
+    }
+
+    if (!values.lastName) {
+      errors.lastName = 'Sobrenome Obrigatório';
+    } else if (!/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ']+$/.test(values.lastName)) {
+      errors.lastName = 'Números ou espaços não são permitidos';
+    }else if(values.firstName.length > 32){
+      errors.firstName = 'Permitido apenas 32 caracteres';
+    }
+
+    if (!values.email) {
+      errors.email = 'E-mail Obrigatório';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = 'Email Invalido';
+    }
+
+    if (!values.address) {
+      errors.address = 'Endereço Obrigatório';
+    }
+
+
+
+    return errors;
+  };
+
+
+
   const formik = useFormik({
     initialValues: {
       id: 0,
@@ -32,6 +69,7 @@ const List = () => {
       address: '',
       cellPhoneNumber: ''
     },
+    validate,
     onSubmit: values => {
       values.id = userId;
       setId(userId + 1);
@@ -44,10 +82,10 @@ const List = () => {
         cellPhoneNumber: values.cellPhoneNumber
       })
       formik.resetForm();
-      console.log(values);
-      console.log(userList)
-      
+      // console.log(values);
+      // console.log(userList)
       console.log(userID)
+
     }
   })
 
@@ -65,7 +103,7 @@ const List = () => {
           {userList.length ?
            userList.map(user=>{
              return(
-              <Card changeId={userID => setUserID(userID)} list={userList} setList={setUserList} user={user} formik={formik} active={active}/>
+              <Card ChangeId={userID => setUserID(userID)} list={userList} setList={setUserList} user={user} formik={formik} active={active}/>
              );
             })   
            : 
@@ -79,7 +117,7 @@ const List = () => {
       
       : <></>
     }
-      <Formulario setList={setUserList} list={userList}  UserID={userID} formik={formik} active={active} activeForm={activeForm}/> 
+      <Formulario setList={setUserList} list={userList} UserID={userID} formik={formik} active={active} activeForm={activeForm}/> 
     </>
 
   )

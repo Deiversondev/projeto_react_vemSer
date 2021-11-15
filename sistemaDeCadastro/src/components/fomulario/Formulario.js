@@ -5,6 +5,11 @@ function Formulario({setList,list,UserID, formik, active, activeForm }) {
 
     function deleteUser(){
         setList(list.filter(user => user.id !== UserID))
+        console.log(UserID);
+    }
+
+    function deleteUser(){
+        setList(list.filter(user => user.id !== UserID))
         console.log(UserID)
     }
 
@@ -20,22 +25,26 @@ function Formulario({setList,list,UserID, formik, active, activeForm }) {
                     <div className={styles.input}>
                         <h4 htmlFor="firstName">Nome</h4>
                         <input type="text" name="firstName" id="firstName" placeholder="Digite seu nome" onChange={formik.handleChange} value={formik.values.firstName} />
+                        {formik.errors.firstName ? <div className={styles.errors}>{formik.errors.firstName}</div> : null}
                     </div>
 
 
                     <div className={styles.input}>
                         <h4 htmlFor="lastName">Sobrenome</h4>
                         <input type="text" name="lastName" id="lastName" placeholder="Digite seu sobrenome" onChange={formik.handleChange} value={formik.values.lastName} />
+                        {formik.errors.lastName ? <div className={styles.errors}>{formik.errors.lastName}</div> : null}
                     </div>
 
                     <div className={styles.input}>
                         <h4 htmlFor="email">Email</h4>
                         <input type="text" name="email" id="email" placeholder="Digite seu e-mail" onChange={formik.handleChange} value={formik.values.email} />
+                        {formik.errors.email ? <div className={styles.errors}>{formik.errors.email}</div> : null}
                     </div>
 
                     <div className={styles.input}>
                         <h4 htmlFor="address">Endereço</h4>
                         <input type="text" name="address" id="address" placeholder="Digite seu endereço" onChange={formik.handleChange} value={formik.values.address} />
+                        {formik.errors.address ? <div className={styles.errors}>{formik.errors.address}</div> : null}
                     </div>
 
                     <div className={styles.input}>
@@ -44,7 +53,7 @@ function Formulario({setList,list,UserID, formik, active, activeForm }) {
                     </div>
 
                     <div className={styles.btn}>
-                        <button onClick={deleteUser}  type="submit">Cadastrar</button>
+                        <button onClick={deleteUser} type="submit">Cadastrar</button>
                     </div>
                 </div>
             </form>
