@@ -6,11 +6,11 @@ const CardList = ({changeId,setList,list,user, formik, active}) => {
 
 
 function remove(id){
-    setList(list.filter(u => u.id !== user.id))
+    setList(list.filter(u => u.id !== id))
 }
 
   function edit(id) {
-    let userFound = list.find(u => u.id === user.id);
+    let userFound = list.find(u => u.id === id);
     formik.setValues(userFound);
     
     active();
