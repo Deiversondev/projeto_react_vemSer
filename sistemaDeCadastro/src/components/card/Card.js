@@ -2,21 +2,19 @@ import style from "../card/Card.module.css"
 import { AiFillDelete } from "@react-icons/all-files/ai/AiFillDelete";
 import { AiFillEdit } from "@react-icons/all-files/ai/AiFillEdit";
 
-const CardList = ({setList,list,user}) => {
+const CardList = ({setList,list,user, formik, active}) => {
 
 
 function remove(id){
     setList(list.filter(u => u.id !== user.id))
 }
 
-function edit(id){
-  let User = list.find(u => u.id === user.id);
-  function Editar(){
-   console.log(User)
+  function edit(id) {
+    let userFound = list.find(u => u.id === user.id);
+    formik.setValues(userFound);
+    setList(list.filter(user => user.id !== id));
+    active();
   }
-  Editar()
-
-}
 
 
   return (

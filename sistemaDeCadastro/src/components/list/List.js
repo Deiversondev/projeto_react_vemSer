@@ -63,7 +63,7 @@ const List = () => {
           {userList.length ?
            userList.map(user=>{
              return(
-              <Card list={userList} setList={setUserList} user={user} />
+              <Card list={userList} setList={setUserList} user={user} formik={formik} active={active}/>
              );
             })   
            : 
