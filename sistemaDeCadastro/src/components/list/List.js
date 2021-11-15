@@ -8,6 +8,7 @@ const List = () => {
 
   const [activeForm, setActiveForm] = useState(false);
   const [activeList, setActiveList] = useState(true);
+  const [userID, setUserID] = useState(0)
 
   const active = ()=> {
     if(activeList === true){
@@ -81,8 +82,9 @@ const List = () => {
         cellPhoneNumber: values.cellPhoneNumber
       })
       formik.resetForm();
-      console.log(values);
-      console.log(userList)
+      // console.log(values);
+      // console.log(userList)
+      console.log(userID)
 
     }
   })
@@ -101,7 +103,7 @@ const List = () => {
           {userList.length ?
            userList.map(user=>{
              return(
-              <Card list={userList} setList={setUserList} user={user} formik={formik} active={active}/>
+              <Card ChangeId={userID => setUserID(userID)} list={userList} setList={setUserList} user={user} formik={formik} active={active}/>
              );
             })   
            : 
@@ -115,7 +117,7 @@ const List = () => {
       
       : <></>
     }
-      <Formulario formik={formik} active={active} activeForm={activeForm}/> 
+      <Formulario setList={setUserList} list={userList} UserID={userID} formik={formik} active={active} activeForm={activeForm}/> 
     </>
 
   )

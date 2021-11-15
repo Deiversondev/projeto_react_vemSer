@@ -1,7 +1,12 @@
 import styles from './Formulario.module.css'
 
 
-function Formulario({ formik, active, activeForm }) {
+function Formulario({setList,list,UserID, formik, active, activeForm }) {
+
+    function deleteUser(){
+        setList(list.filter(user => user.id !== UserID))
+        console.log(UserID);
+    }
 
 
     return (
@@ -44,12 +49,12 @@ function Formulario({ formik, active, activeForm }) {
                     </div>
 
                     <div className={styles.btn}>
-                        <button  type="submit">Cadastrar</button>
+                        <button onClick={deleteUser} type="submit">Cadastrar</button>
                     </div>
                 </div>
             </form>
                 <div className={styles.btn}>
-                    <button onClick={active}>Voltar</button>
+                    <button onClick={active}>Cancelar</button>
                 </div>
         </div> 
             : <></>
