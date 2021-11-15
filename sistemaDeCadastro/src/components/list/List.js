@@ -22,6 +22,43 @@ const List = () => {
   const [userId, setId] = useState(1);
   const [userList, setUserList] = useState([]);
 
+  const validate = values => {
+    const errors = {};
+
+
+    if (!values.firstName) {
+      errors.firstName = 'Nome Obrigatório';
+    } else if (!/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ']+$/.test(values.firstName)) {
+      errors.firstName = 'Números ou espaços não são permitidos';
+    }else if(values.firstName.length > 32){
+      errors.firstName = 'Permitido apenas 32 caracteres';
+    }
+
+    if (!values.lastName) {
+      errors.lastName = 'Sobrenome Obrigatório';
+    } else if (!/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ']+$/.test(values.lastName)) {
+      errors.lastName = 'Números ou espaços não são permitidos';
+    }else if(values.firstName.length > 32){
+      errors.firstName = 'Permitido apenas 32 caracteres';
+    }
+
+    if (!values.email) {
+      errors.email = 'E-mail Obrigatório';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = 'Email Invalido';
+    }
+
+    if (!values.address) {
+      errors.address = 'Endereço Obrigatório';
+    }
+
+
+
+    return errors;
+  };
+
+
+
   const formik = useFormik({
     initialValues: {
       id: 0,
@@ -31,6 +68,7 @@ const List = () => {
       address: '',
       cellPhoneNumber: ''
     },
+    validate,
     onSubmit: values => {
       values.id = userId;
       setId(userId + 1);
