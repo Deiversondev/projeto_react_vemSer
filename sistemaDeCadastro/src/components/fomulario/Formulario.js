@@ -54,7 +54,7 @@ function Formulario({setList,list,UserID, formik, active, activeForm }) {
                 </div>
             </form>
                 <div className={styles.btn}>
-                    <button onClick={active}>Cancelar</button>
+                    <button onClick={active}>Voltar</button>
                 </div>
         </div> 
             : <></>
