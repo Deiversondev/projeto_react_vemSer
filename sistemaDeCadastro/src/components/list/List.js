@@ -1,5 +1,5 @@
-import Card from "../card/Card"
-import style from "../list/List.module.css"
+import Card from "../card/Card";
+import style from "../list/List.module.css";
 import Formulario from '../fomulario/Formulario';
 import { useState } from "react";
 import { useFormik } from 'formik';
@@ -8,7 +8,7 @@ const List = () => {
 
   const [activeForm, setActiveForm] = useState(false);
   const [activeList, setActiveList] = useState(true);
-  const [userID, setUserID] = useState(0)
+  const [userID, setUserID] = useState(0);
 
   const active = ()=> {
     if(activeList === true){
@@ -18,7 +18,7 @@ const List = () => {
       setActiveForm(false);
       setActiveList(true);
     }
-  }
+  };
 
   const [userId, setId] = useState(1);
   const [userList, setUserList] = useState([]);
@@ -32,31 +32,31 @@ const List = () => {
       errors.firstName = 'Números ou espaços não são permitidos';
     }else if(values.firstName.length > 32){
       errors.firstName = 'Permitido apenas 32 caracteres';
-    }
+    };
 
     if (!values.lastName) {
       errors.lastName = 'Sobrenome Obrigatório';
-    } else if (!/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ']+$/.test(values.lastName)) {
-      errors.lastName = 'Números ou espaços não são permitidos';
+    } else if (!/^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ'\s]+$/.test(values.lastName)) {
+      errors.lastName = 'Números não são permitidos';
     }else if(values.firstName.length > 32){
       errors.firstName = 'Permitido apenas 32 caracteres';
-    }
+    };
 
     if (!values.email) {
       errors.email = 'E-mail Obrigatório';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
       errors.email = 'Email Invalido';
-    }
+    };
 
     if (!values.address) {
       errors.address = 'Endereço Obrigatório';
-    }
+    };
 
     if(!values.cellPhoneNumber){
       errors.cellPhoneNumber = 'Número Obrigatório';
     }else if(/_/.test(values.cellPhoneNumber)){
       errors.cellPhoneNumber = 'Digite todos os números';
-    }
+    };
 
     return errors;
   };
@@ -83,9 +83,10 @@ const List = () => {
         cellPhoneNumber: values.cellPhoneNumber
       })
       formik.resetForm();
-      console.log(userID)
     }
-  })
+  });
+
+  
 
   return (
     <>
@@ -108,14 +109,14 @@ const List = () => {
         </div>
       </div>
           <div className={style.btn}>
-            <button onClick={active}>Cadastrar Novo Usuário</button>
+            <button onClick={() => {active();setUserID(0)}}>Cadastrar Novo Usuário</button>
           </div>
       </> 
       : <></>
     }
-      <Formulario setList={setUserList} list={userList} UserID={userID} formik={formik} active={active} activeForm={activeForm}/> 
+      <Formulario setUserID={setUserID}  resetForm={formik.resetForm} setList={setUserList} list={userList} UserID={userID} formik={formik} active={active} activeForm={activeForm}/> 
     </>
-  )
-}
+  );
+};
 
 export default List;

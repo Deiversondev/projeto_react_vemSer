@@ -1,12 +1,11 @@
-import styles from './Formulario.module.css'
+import styles from './Formulario.module.css';
 import InputMask from "react-input-mask";
 
-function Formulario({setList,list,UserID, formik, active, activeForm }) {
+function Formulario({setUserID,resetForm,setList,list,UserID, formik, active, activeForm }) {
 
     function deleteUser(){
-        setList(list.filter(user => user.id !== UserID))
-        console.log(UserID);
-    }
+        setList(list.filter(user => user.id !== UserID));
+    };
 
     return (
         <>
@@ -53,12 +52,12 @@ function Formulario({setList,list,UserID, formik, active, activeForm }) {
                 </div>
             </form>
                 <div className={styles.btn}>
-                    <button onClick={active}>Voltar</button>
+                    <button onClick={() => {active();resetForm(); setUserID(0)}}>Voltar</button>
                 </div>
         </div> 
             : null}
         </>
-    )
+    );
 }
 
 export default Formulario;

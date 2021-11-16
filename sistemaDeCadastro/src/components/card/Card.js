@@ -1,4 +1,4 @@
-import style from "../card/Card.module.css"
+import style from "../card/Card.module.css";
 import { AiFillDelete } from "@react-icons/all-files/ai/AiFillDelete";
 import { AiFillEdit } from "@react-icons/all-files/ai/AiFillEdit";
 
@@ -6,14 +6,13 @@ const Card = ({ChangeId,setList,list,user, formik, active}) => {
 
 function remove(id){
     setList(list.filter(u => u.id !== id))
-}
+};
 
   function edit(id) {
     let userFound = list.find(u => u.id === id);
     formik.setValues(userFound);
-    // setList(list.filter(user => user.id !== id));
     active();
-  }
+  };
 
   return (
     <div className={style.container}>
