@@ -9,6 +9,9 @@ const List = () => {
   const [activeForm, setActiveForm] = useState(false);
   const [activeList, setActiveList] = useState(true);
   const [userID, setUserID] = useState(0);
+  const [ButtonOne, setButtonOne] = useState("Cadastrar");
+  const [ButtonTwo, setButtonTwo] = useState("Voltar");
+  const [ButtonThree, setButtonThree] = useState("Cadastrar");
 
   const active = ()=> {
     if(activeList === true){
@@ -101,7 +104,7 @@ const List = () => {
           {userList.length ?
            userList.map(user=>{
              return(
-              <Card ChangeId={userID => setUserID(userID)} list={userList} setList={setUserList} user={user} formik={formik} active={active}/>
+              <Card setButtonOne={setButtonOne} setButtonTwo={setButtonTwo} setButtonThree={setButtonThree} ChangeId={userID => setUserID(userID)} list={userList} setList={setUserList} user={user} formik={formik} active={active}/>
              );
             })   
            : 
@@ -114,7 +117,7 @@ const List = () => {
       </> 
       : <></>
     }
-      <Formulario setUserID={setUserID}  resetForm={formik.resetForm} setList={setUserList} list={userList} UserID={userID} formik={formik} active={active} activeForm={activeForm}/> 
+      <Formulario ButtonOne={ButtonOne} ButtonTwo={ButtonTwo} ButtonThree={ButtonThree} setButtonOne={setButtonOne} setButtonTwo={setButtonTwo} setButtonThree={setButtonThree} setUserID={setUserID}  resetForm={formik.resetForm} setList={setUserList} list={userList} UserID={userID} formik={formik} active={active} activeForm={activeForm}/> 
     </>
   );
 };

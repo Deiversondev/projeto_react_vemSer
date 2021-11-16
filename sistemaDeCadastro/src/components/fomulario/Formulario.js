@@ -1,11 +1,20 @@
 import styles from './Formulario.module.css';
 import InputMask from "react-input-mask";
 
-function Formulario({setUserID,resetForm,setList,list,UserID, formik, active, activeForm }) {
+function Formulario({ButtonOne, ButtonTwo, ButtonThree, setButtonOne, setButtonTwo, setButtonThree, setUserID,resetForm,setList,list,UserID, formik, active, activeForm }) {
 
     function deleteUser(){
         setList(list.filter(user => user.id !== UserID));
+        setButtonOne('Cadastrar');
+        setButtonTwo('Voltar');
+        setButtonThree('Cadastrar');
     };
+
+    const voltar = () => {
+        setButtonOne('Cadastrar');
+        setButtonTwo('Voltar');
+        setButtonThree('Cadastrar');
+    }
 
     return (
         <>
@@ -13,7 +22,7 @@ function Formulario({setUserID,resetForm,setList,list,UserID, formik, active, ac
             activeForm ?
             <div>
             <form onSubmit={formik.handleSubmit}>
-                <div className={styles.title}>Cadastrar</div>
+                <div className={styles.title}>{ButtonOne}</div>
                 <div className={styles.form}>
 
                     <div className={styles.input}>
@@ -47,12 +56,12 @@ function Formulario({setUserID,resetForm,setList,list,UserID, formik, active, ac
                     </div>
 
                     <div className={styles.btn}>
-                        <button onClick={deleteUser} type="submit">Cadastrar</button>
+                        <button onClick={deleteUser} type="submit">{ButtonThree}</button>
                     </div>
                 </div>
             </form>
                 <div className={styles.btn}>
-                    <button onClick={() => {active();resetForm(); setUserID(0)}}>Voltar</button>
+                    <button onClick={() => {active();resetForm(); setUserID(0); voltar()}}>{ButtonTwo}</button>
                 </div>
         </div> 
             : null}
